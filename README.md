@@ -1,5 +1,24 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Setup firebase project
+
+copy the config file into `/src/fbConfig.js`. There is an example at `/src/fbConfigExample.js`
+
+### `firebase storage rules`
+
+```
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /{allPaths=**} {
+      // allow read, write: if request.auth != null;
+      allow read, write: if true;
+    }
+  }
+}
+
+```
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -66,4 +85,4 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
-"# fb-storage-upload" 
+"# fb-storage-upload"
